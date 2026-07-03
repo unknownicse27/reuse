@@ -165,7 +165,7 @@ def main(argv=None):
         
     print(f'[INFO] ReuSE : Testing done.')
     for k in range(args.repetition):
-        print(f'[INFO] ReuSE : Version {k} achieved {ver_cov_list[k]} coverage.')
+        print(f'[INFO] ReuSE : {program}-{symbolic_executor.versions[program][k]} achieved {ver_cov_list[k]} coverage.')
     os.system(f"rm -f {original_path}/*/assembly.ll")
     os.system(f"rm -f {original_path}/*/final.bc")
     os.system(f"rm -f {original_path}/*/run.istats")
