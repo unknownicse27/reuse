@@ -174,13 +174,13 @@ This section describes the structure of the directory and  files. Some less-impo
 ```
 
 ## Data Availability
-If you want to access data about the experiments of ParaSuit, you can download it at the following URL:
+If you want to access the main results of ReuSE, you can download them at the following URL:
 [https://github.com/unknownicse27/reuse/releases/tag/experiments](https://github.com/unknownicse27/reuse/releases/tag/experiments)
 
 Download the following file from the URL
 + reuse_main_experiments.zip
 
-You can download the data files by clicking file or running the following commands.
+You can download the data files by clicking the file or running the following commands.
 
 ```
 $ wget https://github.com/unknownicse27/reuse/releases/tag/experiments/reuse_main_experiments.zip
