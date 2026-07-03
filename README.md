@@ -36,10 +36,8 @@ Format : reuse -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to
 
 Then, you will see logs as follows.
 ```bash
-[INFO] ReuSE : Coverage will be recorded at "ReuSE_TEST/coverage.csv" at every iteration.
+[INFO] ReuSE : Coverage will be recorded at ".../ReuSE_TEST/coverage.csv" at every iteration.
 [INFO] ReuSE : All configuration loaded. Start testing.
-[INFO] ReuSE : Iteration: 1 Iteration budget: 120 Total budget: 3600 Time elapsed: 141 Used argument:  Coverage: 1711
-[INFO] ReuSE : Iteration: 2 Iteration budget: 120 Total budget: 3600 Time elapsed: 283 Used argument: -G Coverage: 2481
 ```
 
 When the time budget expires without error, you can see the following output.
