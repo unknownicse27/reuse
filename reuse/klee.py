@@ -107,8 +107,6 @@ class KLEE:
         cmd_list = [f"KLEE_CEXCACHINGSOLVER_DISK=1 KLEE_CACHE_DIR={cache_path}", self.bin]
         cmd_list = cmd_list + option_args + [str(target)] + sym_args
         cmd = " ".join(cmd_list)
-
-        print(cmd)
         
         try:
             result = sp.run(cmd, stdout=sp.PIPE, stderr=sp.PIPE, shell=True, check=True, timeout=int(1.25*budget))
