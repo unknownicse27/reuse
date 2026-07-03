@@ -56,6 +56,7 @@ When the time budget expires without error, you can see the following output.
 If you want to get results about how many branches ReuSE has covered, run the following command.
 ```bash
 # Needs 'matplotlib' package
+/reuse/benchmarks $ pip3 install matplotlib 
 /reuse/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 ReuSE_TEST 
 ```
 
