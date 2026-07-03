@@ -42,37 +42,39 @@ def main(argv=None):
     hyperparameters.add_argument('--init-budget', default=43200, type=int, metavar='INT',
                                  help='Initial symbolic argument formats')
     hyperparameters.add_argument('--gcov-depth', default=1, type=int, metavar='INT',
-                                 help='Initial symbolic argument formats')
-    hyperparameters.add_argument('--num-resample', default=5, type=int, metavar='INT',
-                                 help='Initial symbolic argument formats')
+                                 help='Depth from the obj-gcov directory to the directory where the gcov file was created')
 
     # Others
     parser.add_argument('-d', '--output-dir', default='ReuSE_TEST', type=str,
                         help='Directory where experiment results are saved (default=ReuSE_TEST)')
+    parser.add_argument('--num-resample', default=5, type=int, metavar='INT',
+                        help='Initial symbolic argument formats')
     parser.add_argument('--repetition', default=3, type=int,
-                        help='Directory where experiment results are saved (default=ReuSE_TEST)')
+                        help='Number of releases to test consecutively (list releases in klee.py)')
     parser.add_argument('--unsat-core', default=False, type=bool,
-                        help='Directory where experiment results are saved (default=ReuSE_TEST)')
+                        help='Decide whether to extract the UNSAT core')
 
     # Required arguments
     required = parser.add_argument_group('required arguments')
     required.add_argument('-t', '--budget', default=3600, type=int, metavar='INT',
-                          help='Total time budget of Symbolic Execution Tool')
+                          help='Time budget for each release')
     required.add_argument('llvm_bc', nargs='?', default=None,
-                          help='LLVM bitecode file for klee')
+                          help='.bc file in obj-llvm directory')
     required.add_argument('gcov_obj', nargs='?', default=None,
-                          help='Executable with gcov support')
+                          help='executable file in obj-gcov# directory')
     args = parser.parse_args(argv)
 
-
-    # if args.budget is None or args.llvm_bc is None or args.gcov_obj is None:
-    if args.llvm_bc is None:
+    if args.llvm_bc is None or args.gcov_obj is None:
         parser.print_usage()
-        print('[INFO] ReuSE : following parameters are required: -t, llvm_bc, gcov_obj')
+        print('[INFO] ReuSE : following parameters are required: llvm_bc, gcov_obj')
         sys.exit(1)
 
     output_dir = Path(args.output_dir)
     running_dir = str(os.getcwd())
+    if args.gcov_obj[0] != "/":
+        args.gcov_obj = f"{running_dir}/{args.gcov_obj}"
+    if args.llvm_bc[0] != "/":
+        args.llvm_bc = f"{running_dir}/{args.llvm_bc}"
     program = args.gcov_obj[args.gcov_obj.rfind("/") + 1:]
 
     original_path = f"{running_dir}/{args.output_dir}"
