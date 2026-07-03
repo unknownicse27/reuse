@@ -85,11 +85,10 @@ Line error occured : 393
 
 ## Usage
 ```
-$ orbis --help
-usage: orbis [-h] [--klee KLEE] [--klee-replay KLEE_REPLAY]
-             [--gen-bout GEN_BOUT] [--gcov GCOV] [--init-budget INT] [--n-testcases FLOAT]
-             [--init-args STR] [-d OUTPUT_DIR] [--src-depth SRC_DEPTH]
-             [-t INT] [-p STR]
+$ reuse --help
+usage: reuse [-h] [--klee KLEE] [--klee-replay KLEE_REPLAY] [--kleaver KLEAVER] [--ktest-tool KTEST_TOOL]
+             [--gcov GCOV] [--init-budget INT] [--gcov-depth INT] [--num-resample INT]
+             [-d OUTPUT_DIR] [--repetition REPETITION] [--unsat-core UNSAT_CORE] [-t INT]
              [llvm_bc] [gcov_obj]
 ```
 
@@ -129,7 +128,7 @@ usage: orbis [-h] [--klee KLEE] [--klee-replay KLEE_REPLAY]
 ## Usage of Other Programs
 ### /benchmarks/report_bugs.py
 ```
-/orbis/benchmarks$ python3 report_bugs.py --help
+/reuse/experiments$ python3 report_bugs.py --help
 usage: report_bugs.py [-h] [--benchmark STR] [--table PATH] [DIRS ...]
 ```
 | Option | Description |
@@ -140,17 +139,15 @@ usage: report_bugs.py [-h] [--benchmark STR] [--table PATH] [DIRS ...]
 | `DIRS`        | Name of directory to detect bugs |
 
 
-### /benchmarks/report_coverage.py
+### /benchmarks/calculate_coverage.py
 ```
-/orbis/benchmarks$ python3 report_coverage.py --help
+/reuse/experiments$ python3 calculate_coverage.py --help
 usage: report_coverage.py [-h] [--benchmark STR] [--graph PATH] [--budget TIME] [DIRS ...]
 ```
 | Option | Description |
 |:------:|:------------|
 | `-h, --help`  | Show help message and exit |
 | `--benchmark` | Name of benchmark & verison |
-| `--graph`     | Path to save coverage graph |
-| `--budget`    | Time budget of the coverage graph |
 | `DIRS`        | Names of directories to draw figure |
 
 
@@ -176,10 +173,9 @@ This section describes the structure of the directory and  files. Some less-impo
     
 ```
 
-
 ## Data Availability
 If you want to access data about the experiments of ParaSuit, you can download it at the following URL:
-https://github.com/anonymousase26/orbis/releases/tag/experimental_result
+[https://github.com/unknownicse27/reuse/releases/tag/experiments](https://github.com/unknownicse27/reuse/releases/tag/experiments)
 
 Download the following file from the URL
 + reuse_main_experiments.zip
@@ -187,7 +183,7 @@ Download the following file from the URL
 You can download the data files by clicking file or running the following commands.
 
 ```
-$ wget https://github.com/anonymousase26/orbis/releases/download/experimental_result/reuse_main_experiments.zip
+$ wget https://github.com/unknownicse27/reuse/releases/tag/experiments/reuse_main_experiments.zip
 $ unzip reuse_main_experiments.zip
 ```
 
