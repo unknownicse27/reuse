@@ -1,6 +1,6 @@
-# ORBiS - Benchmarks
+# ReuSE - Benchmarks
 
-Using ORBiS, you can install three consecutive releases of 15 benchmarks
+Using ReuSE, you can install three consecutive releases of 15 benchmarks
 
 | Benchmark | version | Benchmark | version | Benchmark | version | Benchmark | version |
 |:------:|:------------|:------:|:------------|:------:|:------------|:------:|:------------|
