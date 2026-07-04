@@ -14,7 +14,6 @@ Format : reuse -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to
 When the experiment is completed, ReuSE provides a line graph showing how many branches were covered in each time budget section through the 'report_coverage.py' program. If you run the command below, ReuSE returns the graph by creating a 'coverage_result.png' file in the same directory.
 ```
 /reuse/benchmarks$ python3 calculate_coverage.py --benchmark grep ReuSE_TEST
-usage: calculate_coverage.py [-h] [--benchmark STR] [--graph PATH] [--budget TIME] [DIRS ...]
 ```
 
 If you want to return multiple results in a single graph, just list the names of the directories, such as:
@@ -37,7 +36,10 @@ Similar to branch coverage, bug-finding also allows you to search multiple direc
 
 ### Options of Reporting Programs
 + /benchmarks/calculate_coverage.py
-
+```
+/reuse/benchmarks$ python3 calculate_coverage.py --help
+usage: calculate_coverage.py [-h] [--benchmark STR] [DIRS ...]
+```
 | Option | Description |
 |:------:|:------------|
 | `-h, --help`  | Show help message and exit |
