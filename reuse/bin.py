@@ -118,12 +118,12 @@ def main(argv=None):
         ver_iter_list.append(f'iteration-{version.replace(".","_")}-{j}')
 
         # Run symbolic executor
-        testcases = symbolic_executor.run(program, args.llvm_bc, iter_budget, args.output_dir, iteration_dir, cache_path, i)
+        testcases = symbolic_executor.run(program, args.llvm_bc, iter_budget, args.output_dir, str(iteration_dir), cache_path, i)
         acc_testcases = acc_testcases + testcases
-        new_sampled = resampler.resample(testcases, f"{running_dir}/{iteration_dir}", i)
+        new_sampled = resampler.resample(testcases, f"{running_dir}/{str(iteration_dir)}", i)
 
         # Collect result
-        iter_covered, new_sampled_covered = runner.evaluate(args.gcov_obj, acc_testcases, len(testcases), new_sampled, f"{running_dir}/{iteration_dir}", args.gcov_depth)
+        iter_covered, new_sampled_covered = runner.evaluate(args.gcov_obj, acc_testcases, len(testcases), new_sampled, f"{running_dir}/{str(iteration_dir)}", args.gcov_depth)
         total_coverage = total_coverage.union(iter_covered, new_sampled_covered)
 
         if args.unsat_core:
@@ -141,7 +141,7 @@ def main(argv=None):
             writer = csv.writer(csvfile)
             writer.writerow([i, elapsed, len(total_coverage), len(iter_covered), len(new_sampled_covered)])
         
-        acc_testcases = acc_testcases + [Path(f"{running_dir}/{iteration_dir}/{tc}") for tc in os.listdir(f"{running_dir}/{iteration_dir}") if tc.endswith(".ktest")]
+        acc_testcases = acc_testcases + [Path(f"{running_dir}/{str(iteration_dir)}/{tc}") for tc in os.listdir(f"{running_dir}/{str(iteration_dir)}") if tc.endswith(".ktest")]
         acc_testcases = list(set(acc_testcases))
 
         j += 1
