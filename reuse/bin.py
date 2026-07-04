@@ -104,14 +104,13 @@ def main(argv=None):
     ver_iter_list = list()
     acc_testcases = list()
     total_coverage = set()
-    i = 0
+    i, j = 0, 0
     elapsed = 0
     num_iter = 1
 
     print(f'[INFO] ReuSE : All configuration loaded. Start testing.')
     
     while i < args.repetition:
-        j = 0
         start = time.time()
         version = symbolic_executor.versions[program][i]
         iteration_dir = output_dir / f'iteration-{version.replace(".","_")}-{j}'
