@@ -42,10 +42,10 @@ Then, you will see logs as follows.
 
 When the time budget expires without error, you can see the following output.
 ```bash
-[INFO] ReuSE : Iteration: 24 Iteration budget: 120 Total budget: 3600 Time elapsed: 3341 Used argument: -l Coverage: 3167 
-[INFO] ReuSE : Iteration: 25 Iteration budget: 120 Total budget: 3600 Time elapsed: 3479 Used argument: -q Coverage: 3168
-[INFO] ReuSE : Iteration: 26 Iteration budget: 120 Total budget: 3600 Time elapsed: 3625 Used argument: -c Coverage: 3169 
-[INFO] ReuSE : Testing done. Achieve 3169 coverage.
+[INFO] ReuSE : Testing done.
+[INFO] ReuSE : grep-3.10 achieved 1245 coverage.
+[INFO] ReuSE : grep-3.11 achieved 1291 coverage.
+[INFO] ReuSE : grep-3.12 achieved 1316 coverage.
 ```
 
 
@@ -53,8 +53,6 @@ When the time budget expires without error, you can see the following output.
 ### Branch Coverage
 If you want to get results about how many branches ReuSE has covered, run the following command.
 ```bash
-# Needs 'matplotlib' package
-/reuse/benchmarks $ pip3 install matplotlib 
 /reuse/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 ReuSE_TEST 
 ```
 
