@@ -4,7 +4,7 @@
 After installing the program from the benchmark directory, you can run ReuSE with that benchmark. For more information about running ReuSE, you can access the README.md file in the parent directory (/reuse).
 
 ```bash
-/reuse/benchmarks $ reuse -t 36000 -d ReuSE_TEST ../benchmarks/grep/3.10/obj-llvm/src/grep.bc ../benchmarks/grep/3.10/obj-gcov/src/grep
+/reuse/benchmarks $ reuse -t 3600 -d ReuSE_TEST ../benchmarks/grep/3.10/obj-llvm/src/grep.bc ../benchmarks/grep/3.10/obj-gcov/src/grep
 ```
 Format : reuse -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to_exec_file(gcov)>
 
