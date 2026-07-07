@@ -11,14 +11,14 @@ Format : reuse -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to
 
 ## Analyzing Results
 ### Branch Coverage
-When the experiment is completed, ReuSE provides a line graph showing how many branches were covered in each time budget section through the 'report_coverage.py' program. If you run the command below, ReuSE returns the graph by creating a 'coverage_result.png' file in the same directory.
+When the experiment is completed, ReuSE provides a line graph showing how many branches were covered in each release through the 'calculate_coverage.py' script. If you run the command below, ReuSE returns the coverage in the terminal output.
 ```
-/reuse/benchmarks$ python3 calculate_coverage.py --benchmark grep ReuSE_TEST
+/reuse/experiments$ python3 calculate_coverage.py --program grep ReuSE_TEST 
 ```
 
-If you want to return multiple results in a single graph, just list the names of the directories, such as:
+If you want to return multiple results, just list the names of the directories, such as:
 ```
-/reuse/benchmarks$ python3 calculate_coverage.py --benchmark grep ReuSE_TEST1 ReuSE_TEST2 ReuSE_TEST3 ...
+/reuse/experiments $ python3 calculate_coverage.py --program grep ReuSE_TEST1 ReuSE_TEST2 ...
 ```
 
 ### Bug-Finding
@@ -37,14 +37,14 @@ Similar to branch coverage, bug-finding also allows you to search multiple direc
 ### Options of Reporting Programs
 + /benchmarks/calculate_coverage.py
 ```
-/reuse/benchmarks$ python3 calculate_coverage.py --help
-usage: calculate_coverage.py [-h] [--benchmark STR] [DIRS ...]
+/reuse/experiments$ python3 calculate_coverage.py --help
+usage: calculate_coverage.py [-h] --program PROGRAM output_dirs [output_dirs ...]
 ```
 | Option | Description |
 |:------:|:------------|
-| `-h, --help`  | Show help message and exit |
-| `--benchmark` | Name of benchmark & verison |
-| `DIRS`        | Names of directories to draw figure |
+| `-h, --help`  | Show this help message and exit |
+| `--program`   | Name of tested program |
+| `output_dirs` | Output directories to calculate branch coverage |
 
 + /benchmarks/report_bugs.py
 ```
