@@ -51,15 +51,23 @@ When the time budget expires without error, you can see the following output.
 
 ## Reporting Results
 ### Branch Coverage
-If you want to get results about how many branches ReuSE has covered, run the following command.
+If you want to get results about how many branches ReuSE has covered for each releases, run the following command.
 ```bash
-/reuse/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 ReuSE_TEST 
+/reuse/experiments $ python3 calculate_coverage.py --program grep ReuSE_TEST 
 ```
 
-And if you want to compare multiple results in a graph, just list the directory names as: 
+And if you want to calculate the union coverage of multiple results, just list the directory names as: 
 ```bash
-/reuse/benchmarks $ python3 report_coverage.py --benchmark grep-3.4 ReuSE_TEST1 ReuSE_TEST2 ...
+/reuse/experiments $ python3 calculate_coverage.py --program grep ReuSE_TEST1 ReuSE_TEST2 ...
 ```
+
+When you run the code, you will receive the returned value as follows.
+```bash
+[INFO] ReuSE : Coverage of grep-3.10 : 1245
+[INFO] ReuSE : Coverage of grep-3.11 : 1291
+[INFO] ReuSE : Coverage of grep-3.12 : 1316
+```
+
 
 
 ### Bug Finding
