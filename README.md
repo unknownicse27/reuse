@@ -134,14 +134,13 @@ usage: reuse [-h] [--klee KLEE] [--klee-replay KLEE_REPLAY] [--kleaver KLEAVER] 
 ### /benchmarks/report_bugs.py
 ```
 /reuse/experiments$ python3 report_bugs.py --help
-usage: report_bugs.py [-h] [--benchmark STR] [--table PATH] [DIRS ...]
+usage: report_bugs.py [-h] --program PROGRAM output_dirs [output_dirs ...]
 ```
 | Option | Description |
 |:------:|:------------|
 | `-h, --help`  | Show this help message and exit |
-| `--benchmark` | Name of benchmark & verison |
-| `--table`     | Path to save bug table graph |
-| `DIRS`        | Name of directory to detect bugs |
+| `--program`   | Name of tested program |
+| `output_dirs` | Output directories to calculate branch coverage |
 
 
 ### /benchmarks/calculate_coverage.py
