@@ -27,7 +27,7 @@ If you want to build ReuSE locally, follow the link to also install the [Z3 solv
 ### Run ReuSE
 Now, you can run ReuSE for three consecutive program releases with the following code. (e.g. grep-3.10 ~ 12).
 ```bash
-/reuse/benchmarks $ reuse -t 3600 -d ReuSE_TEST ../benchmarks/grep/3.10/obj-llvm/src/grep.bc ../benchmarks/grep/3.10/obj-gcov1/src/grep
+/reuse/experiments $ reuse -t 3600 -d ReuSE_TEST ../benchmarks/grep/3.10/obj-llvm/src/grep.bc ../benchmarks/grep/3.10/obj-gcov1/src/grep
 ```
 Format : reuse -t <time_budget> -d <output_dir> <path_to_bc_file(llvm)> <path_to_exec_file(gcov)>
 + -t : Time Budget (seconds)
@@ -131,18 +131,6 @@ usage: reuse [-h] [--klee KLEE] [--klee-replay KLEE_REPLAY] [--kleaver KLEAVER] 
 | `gcov_obj` | executable file in obj-gcov# directory |
 
 ## Usage of Other Programs
-### /benchmarks/report_bugs.py
-```
-/reuse/experiments$ python3 report_bugs.py --help
-usage: report_bugs.py [-h] --program PROGRAM output_dirs [output_dirs ...]
-```
-| Option | Description |
-|:------:|:------------|
-| `-h, --help`  | Show this help message and exit |
-| `--program`   | Name of tested program |
-| `output_dirs` | Output directories to calculate branch coverage |
-
-
 ### /benchmarks/calculate_coverage.py
 ```
 /reuse/experiments$ python3 calculate_coverage.py --help
@@ -153,6 +141,18 @@ usage: calculate_coverage.py [-h] --program PROGRAM output_dirs [output_dirs ...
 | `-h, --help`  | Show this help message and exit |
 | `--program`   | Name of tested program |
 | `output_dirs` | Output directories to calculate branch coverage |
+
+
+### /benchmarks/report_bugs.py
+```
+/reuse/experiments$ python3 report_bugs.py --help
+usage: report_bugs.py [-h] --program PROGRAM output_dirs [output_dirs ...]
+```
+| Option | Description |
+|:------:|:------------|
+| `-h, --help`  | Show this help message and exit |
+| `--program`   | Name of tested program |
+| `output_dirs` | Output directories to extract bug-triggering test cases |
 
 
 ## Source Code Structure
@@ -166,7 +166,7 @@ This section describes the structure of the directory and  files. Some less-impo
     └── sqlite_config.py          └── JSON file with the version and amalgamation name of the SQLite program to be built
 ├── experiments                   <Directory to run ReuSE & save results>
     ├── calculate_coverage.py     ├── Python file to calculate branch coverages of each release
-    └── report_bugs.py            └── Directory of program options
+    └── report_bugs.py            └── Python file to extract bug-triggering test cases
 ├── klee                          <KLEE-3.1-based symbolic execution tool compatible with ReuSE>
 └── reuse                         <Main source code directory>
     ├── bin.py                    ├── Main function of ReuSE
