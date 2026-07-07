@@ -147,13 +147,13 @@ usage: report_bugs.py [-h] [--benchmark STR] [--table PATH] [DIRS ...]
 ### /benchmarks/calculate_coverage.py
 ```
 /reuse/experiments$ python3 calculate_coverage.py --help
-usage: report_coverage.py [-h] [--benchmark STR] [--graph PATH] [--budget TIME] [DIRS ...]
+usage: calculate_coverage.py [-h] --program PROGRAM output_dirs [output_dirs ...]
 ```
 | Option | Description |
 |:------:|:------------|
-| `-h, --help`  | Show help message and exit |
-| `--benchmark` | Name of benchmark & verison |
-| `DIRS`        | Names of directories to draw figure |
+| `-h, --help`  | Show this help message and exit |
+| `--program`   | Name of tested program |
+| `output_dirs` | Output directories to calculate branch coverage |
 
 
 ## Source Code Structure
@@ -166,7 +166,7 @@ This section describes the structure of the directory and  files. Some less-impo
     ├── gnu_config.json           ├── JSON file with the version and download link of the GNU program to be built
     └── sqlite_config.py          └── JSON file with the version and amalgamation name of the SQLite program to be built
 ├── experiments                   <Directory to run ReuSE & save results>
-    ├── calculate_coverage.py     ├── Directory of option-related path conditions for the program
+    ├── calculate_coverage.py     ├── Python file to calculate branch coverages of each release
     └── report_bugs.py            └── Directory of program options
 ├── klee                          <KLEE-3.1-based symbolic execution tool compatible with ReuSE>
 └── reuse                         <Main source code directory>
