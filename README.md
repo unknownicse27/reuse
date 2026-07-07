@@ -73,7 +73,7 @@ When you run the code, you will receive the returned value as follows.
 ### Bug Finding
 If you want to check information about what bugs ReuSE has found, run the following command.
 ```bash
-/reuse/experiments $ python3 report_bugs.py --benchmark grep ReuSE_TEST
+/reuse/experiments $ python3 report_bugs.py --program grep ReuSE_TEST
 ```
 + Modify the tested versions within the .py file.
 
