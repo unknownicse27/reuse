@@ -188,7 +188,7 @@ You can download the data files by clicking the file or running the following co
 
 ```
 $ wget https://github.com/unknownicse27/reuse/releases/tag/experiments/reuse_main_experiments.tar.xz
-$ unzip reuse_main_experiments.tar.xz
+$ tar- xf reuse_main_experiments.tar.xz
 ```
 
 You can access the test-case directories for all programs for our main experiments.
